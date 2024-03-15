@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import static io.restassured.RestAssured.given;
 
 public class RestAssuredTest {
-    private static String accesToken; //    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxMDQ2Njk0NCwianRpIjoiYzZkYTk5MTEtZjU5Yy00NTE0LTgwZDktZDYyOTEzYzQ4Njk2IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InN0cmluZyIsIm5iZiI6MTcxMDQ2Njk0NCwiY3NyZiI6IjVlOGJhMTUxLTcwYTAtNGI2YS1iYzcxLTBlODYzM2I1YWJhZSIsImV4cCI6MTcxMDQ2Nzg0NH0.jramyG3I4ohle831xC2oyggZuAFIHC-aBlM-GuPWjXY"
+    private static String accesToken;
 
     private static String login = "{\n" +
             "  \"username\": \"string\",\n" +
