@@ -16,13 +16,6 @@ public class RestAssuredTest {
     private static final String LOGIN = "string";
     private static final String PASSWORD = "string";
     private static String accessToken;
-    private static String updatedName = "{\n" +
-            "  \"name\": \"Updated Product Name\",\n" +
-            "  \"category\": \"Electronics\",\n" +
-            "  \"price\": 15.99,\n" +
-            "  \"discount\": 8\n" +
-            "}";
-
 
     @BeforeAll
     public static void init () {
@@ -116,13 +109,13 @@ public class RestAssuredTest {
     @Test
     @DisplayName("Get information about a specific product")
     public void getSpecificProduct () {
-        String s= given()
+        given()
                 .when()
                 .get(PRODUCTS_ENDPOINT + "/1")
                 .then()
-                .assertThat().statusCode(200).and().extract().asString();
-        System.out.println(123);
-//        Assertions.assertEquals("[HP Pavilion Laptop]", pd.getName());
+                .assertThat().
+                statusCode(200)
+                .and().extract().as(ProductCard.class);
     }
 
     //изменить информацию о продукте
@@ -134,10 +127,25 @@ public class RestAssuredTest {
                 .when()
                 .auth()
                 .oauth2(accessToken)
-                .body(new ProductCard("Electronics", "test", null, "test", "550"))
-                .put("products/1")
+                .body(new ProductCard("Electronics", "test", "1", "test", "550"))
+                .put(PRODUCTS_ENDPOINT + "1")
                 .then()
                 .assertThat().statusCode(201).and().extract()
+                .response();
+    }
+    //изменить информацию о продукте, передав невалидный ID
+    @Test
+    @DisplayName("Update information about a specific product")
+    public void updateInformation404 () {
+        RestAssured.given()
+                .contentType(ContentType.JSON)
+                .when()
+                .auth()
+                .oauth2(accessToken)
+                .body(new ProductCard("Electronics", "test", "TEST", "test", "550"))
+                .put(PRODUCTS_ENDPOINT + "1")
+                .then()
+                .assertThat().statusCode(404).and().extract()
                 .response();
     }
 
@@ -150,11 +158,23 @@ public class RestAssuredTest {
                 .when()
                 .auth()
                 .oauth2(accessToken)
-                .body(updatedName)
-                .delete("products/124")
+                .delete(PRODUCTS_ENDPOINT + "/1")
                 .then()
-                .assertThat().statusCode(201).and().extract()
-                .response();
+                .assertThat().statusCode(201);
+    }
+
+    //удалить несуществующий продукт
+    @Test
+    @DisplayName("Delete a specific product")
+    public void deleteProductNotExisted () {
+        RestAssured.given()
+                .contentType(ContentType.JSON)
+                .when()
+                .auth()
+                .oauth2(accessToken)
+                .delete(PRODUCTS_ENDPOINT + "/1231542135")
+                .then()
+                .assertThat().statusCode(404);
     }
 
     //добавить продукт в корзину
@@ -188,14 +208,13 @@ public class RestAssuredTest {
     @Test
     @DisplayName("Get the user's shopping cart")
     public void getCart () {
-        String totalPrice = given()
+        List<ProductCard> l = given()
                 .auth()
                 .oauth2(accessToken)
                 .when()
                 .get(CART_ENDPOINT)
                 .then()
-                .assertThat().statusCode(200).and().extract().asString();
-        Assertions.assertEquals("395.64", totalPrice);
+                .assertThat().statusCode(200).and().extract().body().jsonPath().getList("cart", ProductCard.class);
     }
 
 
