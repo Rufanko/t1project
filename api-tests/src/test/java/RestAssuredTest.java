@@ -205,6 +205,7 @@ public class RestAssuredTest {
 
 
     //получить корзину пользователя
+    //в корзине получить список товаров, сопоставить с классом.
     @Test
     @DisplayName("Get the user's shopping cart")
     public void getCart () {
