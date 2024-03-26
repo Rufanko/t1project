@@ -44,6 +44,12 @@
             <artifactId>api-tests</artifactId>
             <version>${api-test-ver}</version>
         </dependency>
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-junit5</artifactId>
+            <version>2.26.0</version>
+            <scope>test</scope>
+        </dependency>
 
     </dependencies>
 
