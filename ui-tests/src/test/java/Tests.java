@@ -49,13 +49,14 @@ public class Tests extends BaseTest {
         }
 
     }
+
     @Test
     @DisplayName("Перейти на страницу Inputs. Ввести любое случайное число от 1 до 10 000. Вывести в консоль значение элемента Input.")
     public void test5 () {
         new MainPage()
                 .openInputs()
                 .inputRandomNumber();
-        }
+    }
 
     @Test
     @DisplayName("Перейти на страницу Hovers. Навести курсор на каждую картинку. Вывести в консоль текст, который появляется при наведении.")
@@ -63,7 +64,7 @@ public class Tests extends BaseTest {
         new MainPage()
                 .openHovers()
                 .hoverImage();
-        }
+    }
 
 
     @Test
@@ -72,7 +73,26 @@ public class Tests extends BaseTest {
         new MainPage()
                 .openNotificationMessage()
                 .clickOnMessage();
-        }
+    }
+
+
+    @Test
+    @DisplayName("Перейти на страницу Add/Remove Elements. Нажать на кнопку Add Element 5 раз. С каждым нажатием выводить в консоль текст появившегося элемента. Нажать на разные кнопки Delete три раза. Выводить в консоль оставшееся количество кнопок Delete и их тексты.")
+    public void test8 () {
+        new MainPage()
+                .openAddRemoveElements()
+                .clickAndSoutText()
+                .clickDelete();
+    }
+
+
+    @Test
+    @DisplayName("Перейти на страницу Status Codes. Кликнуть на каждый статус в новом тестовом методе, вывести на экран текст после перехода на страницу статус")
+    public void test9 () throws InterruptedException {
+        new MainPage()
+                .openStatusCodes()
+                .clickStatuses();
+    }
 
 
 }

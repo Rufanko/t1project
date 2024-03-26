@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.page;
 public class NotificationMessage {
     private SelenideElement e;
 
-    @Step
+    @Step("Кликать на кнопку и закрывать всплывающее окно")
     public void clickOnMessage () {
         while (true) {
             $x("//a[text()='Click here']").click();
