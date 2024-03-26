@@ -1,8 +1,12 @@
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import pages.MainPage;
 
+import static com.codeborne.selenide.Selenide.open;
+
 public class Tests extends BaseTest {
+
 
     @Test
     @DisplayName("Перейти на страницу Checkboxes. Выделить первый чекбокс, снять выделение со второго чекбокса. Вывести в консоль состояние атрибута checked для каждого чекбокса.")
@@ -27,4 +31,48 @@ public class Tests extends BaseTest {
                 .selectSecondOption()
                 .outSelectedText();
     }
+
+    @Test
+    @DisplayName("Перейти на страницу Disappearing Elements. Добиться отображения 5 элементов, максимум за 10 попыток, если нет, провалить тест с ошибкой.")
+    public void test4 () {
+        MainPage mainPage = new MainPage();
+        for (int i = 0; i < 10; i++) {
+            int elements = mainPage.openDisappearingElements().countElemenst();
+            if (elements == 5) {
+                return;
+            } else {
+                open("https://the-internet.herokuapp.com/");
+            }
+            if (i == 9) {
+                Assertions.fail();
+            }
+        }
+
+    }
+    @Test
+    @DisplayName("Перейти на страницу Inputs. Ввести любое случайное число от 1 до 10 000. Вывести в консоль значение элемента Input.")
+    public void test5 () {
+        new MainPage()
+                .openInputs()
+                .inputRandomNumber();
+        }
+
+    @Test
+    @DisplayName("Перейти на страницу Hovers. Навести курсор на каждую картинку. Вывести в консоль текст, который появляется при наведении.")
+    public void test6 () {
+        new MainPage()
+                .openHovers()
+                .hoverImage();
+        }
+
+
+    @Test
+    @DisplayName("Перейти на страницу Notification Message. Кликать до тех пор, пока не покажется уведомление Action successful. После каждого неудачного клика закрывать всплывающее уведомление.")
+    public void test7 () {
+        new MainPage()
+                .openNotificationMessage()
+                .clickOnMessage();
+        }
+
+
 }

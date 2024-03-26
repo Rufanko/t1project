@@ -40,7 +40,7 @@ public class MainPage {
 
     @Step("Перейти на страницу Notification Message")
     public NotificationMessage openNotificationMessage () {
-        $(By.xpath("//a[text()='Notification Message']")).click();
+        $(By.xpath("//a[text()='Notification Messages']")).click();
         return page(NotificationMessage.class);
     }
 
