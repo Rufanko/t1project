@@ -1,4 +1,6 @@
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
 import static com.codeborne.selenide.Configuration.baseUrl;
@@ -12,5 +14,10 @@ public class BaseTest {
         Configuration.baseUrl = ("https://the-internet.herokuapp.com/");
         Configuration.timeout = 15000;
         open(baseUrl);
+    }
+
+    @AfterEach
+    public void close() {
+        Selenide.close();
     }
 }
