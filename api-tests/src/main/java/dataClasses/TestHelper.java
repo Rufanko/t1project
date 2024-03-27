@@ -1,4 +1,4 @@
-package dateClasses;
+package dataClasses;
 
 import java.nio.charset.Charset;
 import java.util.Random;

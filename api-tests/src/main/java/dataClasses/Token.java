@@ -1,4 +1,4 @@
-package dateClasses;
+package dataClasses;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;

@@ -1,4 +1,4 @@
-package dateClasses;
+package dataClasses;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
