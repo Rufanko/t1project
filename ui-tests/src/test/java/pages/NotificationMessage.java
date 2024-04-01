@@ -2,6 +2,7 @@ package pages;
 
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
+import org.junit.jupiter.api.Assertions;
 
 import static com.codeborne.selenide.Selenide.$x;
 import static com.codeborne.selenide.Selenide.page;
@@ -11,18 +12,12 @@ public class NotificationMessage {
 
     @Step("Кликать на кнопку и закрывать всплывающее окно")
     public void clickOnMessage () {
-        while (true) {
-            $x("//a[text()='Click here']").click();
-            e = $x("//div[@id='flash']");
-            if (e.getText().equals("Action successful\n" +
-                    "×")) {
-                break;
 
-            } else {
-                close();
-            }
+        $x("//a[text()='Click here']").click();
+        e = $x("//div[@id='flash']");
+        Assertions.assertEquals(("Action successful\n" +
+                "×"), e.getText());
 
-        }
     }
 
 
