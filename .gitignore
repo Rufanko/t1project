@@ -1,5 +1,4 @@
-/api-tests/allure-results/
-/ui-tests/allure-results/
-/ui-tests/build
-/ui-tests/.allure/
-/ui-tests/target
+*/allure-results/
+*/build
+*/.allure/
+*/target
