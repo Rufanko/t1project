@@ -13,7 +13,7 @@ public class Inputs {
         SelenideElement input = $(By.xpath("//input"));
         input.click();
         input.sendKeys(String.valueOf(TestHelperUI.generateToNumbers(1, 10000)));
-        System.out.println(input.getText());
+        System.out.println(input.getValue());
         return page(Inputs.class);
     }
 }

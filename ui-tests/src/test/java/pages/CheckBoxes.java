@@ -9,14 +9,14 @@ import static com.codeborne.selenide.Selenide.*;
 public class CheckBoxes {
     @Step("Выделить первый чекбокс")
     public CheckBoxes selectFirstCheckBox () {
-        $(By.xpath("//*[text()=' checkbox 1']/input")).click();
+        $(By.xpath("//*[text()=' checkbox 1']//input[1]")).click();
         return page(CheckBoxes.class);
 
     }
 
-    @Step("Выделить первый чекбокс")
+    @Step("Выделить второй чекбокс")
     public CheckBoxes selectSecondCheckBox () {
-        $(By.xpath("//*[text()=' checkbox 2']/input")).click();
+        $(By.xpath("//*[text()=' checkbox 1']//input[2]")).click();
         return page(CheckBoxes.class);
     }
 

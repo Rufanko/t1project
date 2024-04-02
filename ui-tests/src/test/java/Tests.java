@@ -14,6 +14,7 @@ public class Tests extends BaseTest {
         new MainPage()
                 .openCheckBoxes()
                 .selectFirstCheckBox()
+                .selectSecondCheckBox()
                 .soutCheckBoxesAttributes();
     }
 
