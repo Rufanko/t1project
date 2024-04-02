@@ -2,3 +2,4 @@
 /ui-tests/allure-results/
 /ui-tests/build
 /ui-tests/.allure/
+/ui-tests/target
