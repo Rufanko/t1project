@@ -56,5 +56,11 @@ public class MainPage {
         return page(StatusCodes.class);
     }
 
+    @Step("Перейти на страницу Notification Message")
+    public DragAndDrop openDragAndDrop() {
+        $(By.xpath("//a[text()='Drag and Drop']")).click();
+        return page(DragAndDrop.class);
+    }
+
 
 }

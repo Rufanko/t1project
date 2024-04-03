@@ -125,4 +125,12 @@ public class Tests extends BaseTest {
                 .clickStatuses();
     }
 
+    @Test
+    @DisplayName("Перейти на страницу Drag and Drop. Перетащить элемент A на элемент B.")
+    public void test10 () throws InterruptedException {
+        new MainPage()
+                .openDragAndDrop()
+                .dragAndDropElementAToB();
+    }
+
 }
