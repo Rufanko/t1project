@@ -24,6 +24,7 @@ public class DragAndDrop {
                 .build();
         dragAndDrop.perform();
 
+
         Assertions.assertEquals($x("//div[@class='column'][1]").getText(), "B");
         Assertions.assertEquals($x("//div[@class='column'][2]").getText(), "A");
         return page(DragAndDrop.class);

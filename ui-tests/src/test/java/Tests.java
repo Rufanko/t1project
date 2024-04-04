@@ -127,10 +127,18 @@ public class Tests extends BaseTest {
 
     @Test
     @DisplayName("Перейти на страницу Drag and Drop. Перетащить элемент A на элемент B.")
-    public void test10 () throws InterruptedException {
+    public void test10 () {
         new MainPage()
                 .openDragAndDrop()
                 .dragAndDropElementAToB();
+    }
+
+    @Test
+    @DisplayName("Перейти на страницу Context menu. Нажать правой кнопкой мыши на отмеченной области и проверить, что JS Alert имеет ожидаемый текст.")
+    public void contextMenutest () {
+        new MainPage()
+                .openContextMenu()
+                .clickContextMenu();
     }
 
 }

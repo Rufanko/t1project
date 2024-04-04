@@ -12,9 +12,9 @@
     <artifactId>ui-tests</artifactId>
 
     <properties>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
-        <selenide>5.24.4</selenide>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <selenide>7.0.3</selenide>
         <testcointainers.selenium>1.19.7</testcointainers.selenium>
         <allure.selenide>2.25.0</allure.selenide>
         <api-test-ver>1.0-SNAPSHOT</api-test-ver>
