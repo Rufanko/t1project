@@ -141,4 +141,19 @@ public class Tests extends BaseTest {
                 .clickContextMenu();
     }
 
+    @Test
+    @DisplayName("Перейти на страницу Infinite Scroll. Проскролить страницу до текста «Eius», проверить, что текст в поле зрения.")
+    public void inifniteScroll () {
+        new MainPage()
+                .openInfiniteScroll()
+                .scrollUntilElem();
+    }
+    @Test
+    @DisplayName("Перейти на страницу Key Presses. Нажать по 10 латинских символов, клавиши Enter, Ctrl, Alt, Tab. Проверить, что после нажатия отображается всплывающий текст снизу, соответствующий конкретной клавише.")
+    public void keyPressees () {
+        new MainPage()
+                .openKeyPresses()
+                .send();
+    }
+
 }

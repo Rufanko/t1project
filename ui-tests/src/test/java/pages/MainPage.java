@@ -57,21 +57,27 @@ public class MainPage {
     }
 
     @Step("Перейти на страницу Drag and Drop")
-    public DragAndDrop openDragAndDrop() {
+    public DragAndDrop openDragAndDrop () {
         $(By.xpath("//a[text()='Drag and Drop']")).click();
         return page(DragAndDrop.class);
     }
 
     @Step("Перейти на страницу Context Menu")
-    public ContextMenu openContextMenu() {
+    public ContextMenu openContextMenu () {
         $(By.xpath("//a[text()='Context Menu']")).click();
         return page(ContextMenu.class);
     }
 
     @Step("Перейти на страницу Infinite Scroll")
-    public InfiniteScroll openInfiniteScroll() {
+    public InfiniteScroll openInfiniteScroll () {
         $(By.xpath("//a[text()='Infinite Scroll']")).click();
         return page(InfiniteScroll.class);
+    }
+
+    @Step("Перейти на страницу Key Presses")
+    public KeyPresses openKeyPresses () {
+        $(By.xpath("//a[text()='Key Presses']")).click();
+        return page(KeyPresses.class);
     }
 
 
